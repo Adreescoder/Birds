@@ -1,11 +1,14 @@
+import 'package:birds/homePage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class SplashScreen extends StatelessWidget {
+  const SplashScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     Future.delayed(Duration(seconds: 3), () {
-      Get.off(() => HomeScreen());
+      Get.to(() => Homepage());
     });
 
     return Scaffold(
@@ -14,14 +17,14 @@ class SplashScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.network(
-              'https://upload.wikimedia.org/wikipedia/commons/5/5f/Alberto_conversi_profile_pic.jpg',
-              height: 100,
-              width: 100,
+            Image.asset(
+              'assets/logo.png',
+              height: 200,
+              width: 200,
             ),
             SizedBox(height: 20),
             Text(
-              "Welcome to My App",
+              "Birds Chat",
               style: TextStyle(
                 fontSize: 24,
                 color: Colors.white,
@@ -29,28 +32,7 @@ class SplashScreen extends StatelessWidget {
               ),
             ),
             SizedBox(height: 10),
-            CircularProgressIndicator(
-              color: Colors.white,
-            ),
           ],
-        ),
-      ),
-    );
-  }
-}
-
-class HomeScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Home Screen"),
-        backgroundColor: Colors.purple,
-      ),
-      body: Center(
-        child: Text(
-          "This is the Home Screen",
-          style: TextStyle(fontSize: 20),
         ),
       ),
     );
